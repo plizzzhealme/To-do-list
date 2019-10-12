@@ -1,4 +1,4 @@
-package toDoLy;
+package toDoList;
 
 import java.io.*;
 import java.util.Scanner;
