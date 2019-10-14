@@ -1,10 +1,10 @@
-package toDoList;
+package com.github.plizzzhealme.todolist.tasklist;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-class TaskList implements Serializable {
+public class TaskList implements Serializable {
     /**
      * storage for tasks
      */
@@ -21,17 +21,20 @@ class TaskList implements Serializable {
     /**
      * create empty task list on initiation
      */
-    TaskList() {
+    public TaskList() {
         list = new ArrayList<>();
     }
 
     /**
-     * add new task to the end of list
-     *
-     * @param t task object
+     * Add new task to the end of list, date is set automatically
+     * @param title task title
+     * @param category  task category
      */
-    void addTask(Task t) {
-        list.add(t);
+    public void addTask(String title, String category) {
+        Task task = new Task();
+        task.setTitle(title);
+        task.setCategory(category);
+        list.add(task);
         undone++;
     }
 
@@ -40,7 +43,7 @@ class TaskList implements Serializable {
      *
      * @param i task index
      */
-    void removeTask(int i) {
+    public void removeTask(int i) {
         if (i < list.size()) {
             if (list.get(i).isDone()) {
                 done--;
@@ -57,7 +60,7 @@ class TaskList implements Serializable {
      * @param i task index
      * @return String with task description or empty String when error
      */
-    String getTask(int i) {
+    public String getTask(int i) {
         if (i < list.size()) {
             return list.get(i).toString();
         } else {
@@ -71,7 +74,7 @@ class TaskList implements Serializable {
      * @param i task index
      * @param s new title
      */
-    void setTitle(int i, String s) {
+    public void setTitle(int i, String s) {
         list.get(i).setTitle(s);
     }
 
@@ -81,7 +84,7 @@ class TaskList implements Serializable {
      * @param i task index
      * @param s new category
      */
-    void setCategory(int i, String s) {
+    public void setCategory(int i, String s) {
         list.get(i).setCategory(s);
     }
 
@@ -90,7 +93,7 @@ class TaskList implements Serializable {
      *
      * @param i task index
      */
-    void setDone(int i) {
+    public void setDone(int i) {
         list.get(i).setStatus(true);
         done++;
         undone--;
@@ -101,7 +104,7 @@ class TaskList implements Serializable {
      *
      * @param i task index
      */
-    void setUndone(int i) {
+    public void setUndone(int i) {
         list.get(i).setStatus(false);
         done--;
         undone++;
@@ -110,35 +113,35 @@ class TaskList implements Serializable {
     /**
      * sort list by date
      */
-    void sortByDate() {
+    public void sortByDate() {
         list.sort(Comparator.comparing(Task::getDate));
     }
 
     /**
      * sort list by category
      */
-    void sortByCategory() {
+    public void sortByCategory() {
         list.sort(Comparator.comparing(Task::getCategory));
     }
 
     /**
      * @return number of done tasks
      */
-    int tasksDone() {
+    public int tasksDone() {
         return done;
     }
 
     /**
      * @return number of undone tasks
      */
-    int tasksUndone() {
+    public int tasksUndone() {
         return undone;
     }
 
     /**
      * @return list size
      */
-    int size() {
+    public int size() {
         return done + undone;
     }
 

@@ -1,8 +1,11 @@
-package toDoList;
+package com.github.plizzzhealme.todolist.tasklist;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Class describes one task
+ */
 class Task implements Serializable {
 
     /**
