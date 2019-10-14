@@ -1,4 +1,4 @@
-package com.github.plizzzhealme.todolist.tasklist;
+package todolist.tasklist;
 
 import java.io.Serializable;
 import java.time.LocalDate;

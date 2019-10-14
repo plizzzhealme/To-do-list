@@ -1,6 +1,6 @@
-package com.github.plizzzhealme.todolist.todoly;
+package todolist.todoly;
 
-import com.github.plizzzhealme.todolist.tasklist.TaskList;
+import todolist.tasklist.TaskList;
 
 import java.io.*;
 import java.util.Scanner;
